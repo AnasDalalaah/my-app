@@ -1,6 +1,6 @@
-import React from "react";
-import HornedBeast from "./HornedBeast";
-import Data from './assests/data.json';
+import React from 'react';
+import HornedBeast from './HornedBeast';
+import HornedBeastData  from './assests/data.json';
 
 class Main extends React.Component{
     render(){
@@ -13,21 +13,24 @@ class Main extends React.Component{
                 <HornedBeast title={'Unicorn Head'} pragraph={'Someone wearing a creepy unicorn head mask'} url={'https://www.dhresource.com/0x0s/f2-albu-g5-M00-1A-11-rBVaI1hsIIiALxKzAAIHjSU3VkE490.jpg/wholesale-halloween-costume-prop-unicorn.jpg'}
                 />
                 */
-               return(
-                   <div>
-
-                   {
-                Data.map((object)=>{
-                    return(
-                        <HornedBeast
-                        imageUrl={object.imageUrl}
-                         title={object.title} pargraph={object.pargraph}   />
-                    ) })
-            }
-        </div>
-            )
+                return (
+                    <div>
+                        {
+                    HornedBeastData.map((object) => {
+       
+                       return (
+           
+                           <HornedBeast image_url={object.image_url} title={object.title} description = {object.description}>
+                               </HornedBeast>
+                           
+       
+                                              );
+                   })
+               
+                }
+                </div>
+               )
+       
            }
-
-    
-    }
+       }
     export default Main;
