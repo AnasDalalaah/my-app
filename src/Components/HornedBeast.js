@@ -26,18 +26,26 @@ increseClick = () => {
             })
         }
 
+        AppearingData = () => {
+            this.props.AppearingData({
+                image_url: this.props.image_url,
+                title: this.props.title,
+                description: this.props.description
+                
+            });
+          }
 
     render() {
+        
+        return(
 
-        return (
-            
             <div class="HornedBeast">
                 {/*         
                    <img src={this.props.imgURL} alt='my first one'></img>
                     <h3>{this.props.title}</h3>
                     <p>this.props.description</p> */}
 
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem' }} onClick={this.AppearingData}>
                     <Card.Img  onClick={this.increseClick} variant="top" src={this.props.image_url} />
                     <Card.Body>
                         <Card.Title>{this.props.title}</Card.Title>
@@ -50,11 +58,12 @@ increseClick = () => {
                         <Button variant="primary">Go somewhere</Button>
                     </Card.Body>
                 </Card>
+                
             </div>
+           
 
 
-
-        )
+        );
 
     }
 
