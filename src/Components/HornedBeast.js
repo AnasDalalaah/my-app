@@ -1,75 +1,57 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card';
+//import Button from 'react-bootstrap/Button';
 
+class HornedBeasts extends React.Component{
 
-
-
-class HornedBeast extends React.Component {
-
-    
-constructor(props){
-
-    super(props);
-    this.state = {
-        NumOfSelect : 0
+    constructor(props){
+        super(props);
+        this.state = {
+            NumOfSelect : 0
+        };
     }
 
-}
+    increseClick  = () =>{
+        this.setState({
+            NumOfSelect: this.state.NumOfSelect + 1
+        })
+    }
 
-increseClick = () => {
+    dataToModal = () => {
+        this.props.apperingData(
+            this.props.title, 
+            this.props.imageUrl,
+             this.props.description, 
+             true);
+    }
 
-            this.setState({
-
-                NumOfSelect:this.state.NumOfSelect + 1
-            })
-        }
-
-        AppearingData = () => {
-            this.props.AppearingData({
-                image_url: this.props.image_url,
-                title: this.props.title,
-                description: this.props.description
-                
-            });
-          }
-
-    render() {
-        
+    render(){
         return(
-
             <div class="HornedBeast">
-                {/*         
-                   <img src={this.props.imgURL} alt='my first one'></img>
-                    <h3>{this.props.title}</h3>
-                    <p>this.props.description</p> */}
-
-                <Card style={{ width: '18rem' }} onClick={this.AppearingData}>
-                    <Card.Img  onClick={this.increseClick} variant="top" src={this.props.image_url} />
-                    <Card.Body>
-                        <Card.Title>{this.props.title}</Card.Title>
-                        <Card.Text>
-                            {this.props.description}
-                        </Card.Text>
-                        <Card.Text>
-                        Number of selects❤: {this.state.NumOfSelect}
-                        </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
-                    </Card.Body>
-                </Card>
-                
+             
+                    <Card 
+                        style={{ width: '18rem' }}
+                        onClick={this.increseClick}
+                        >
+                        <Card.Img 
+                            onClick={this.dataToModal}
+                            variant="top" 
+                            src={this.props.imageUrl} 
+                        />
+                        <Card.Body>
+                            <Card.Title>{this.props.title}</Card.Title>
+                            <Card.Text>
+                            Number of selects❤: {this.state.NumOfSelect}
+                            </Card.Text>
+                            <Card.Footer>{this.props.description}</Card.Footer>
+                            {/* <Button variant="primary">Go somewhere</Button> */}
+                        </Card.Body>
+                    </Card>      
+                 
             </div>
-           
-
-
         );
-
     }
-
-
-
 }
 
-
-export default HornedBeast;
+export default HornedBeasts;

@@ -1,51 +1,57 @@
-import React from 'react'
-import Header from './Components/Header';
-import Main from './Components/Main';
-import Footer from './Components/Footer';
-import './App.css';
-import Data from './components/asessts/data.json';
-import SelectedBeast from './components/SelectedBeast';
 
-
-
- 
+import React from "react";
+import "./App.css";
+import Main from "./Components/Main";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import Data from "./Components/assests/data.json";
+import SelectedBeast from "./Components/SelectedBeast";
 
 class App extends React.Component{
-  constructor (props){
+  constructor(props){
     super(props);
-    this.state ={
-      title : 'title',
-      image_url :'imgu',
-      description : 'desc',
-      show:false,
-    }
+    this.state = {
+      title: 'title',
+      imageUrl: 'img',
+      description: 'desc',
+      modalShow: false,
+    };
+  }
 
-  }
-  modalActive = (title, imgUrl, description, showMod) => {
-    this.setState({ title: title, imgUrl: imgUrl, description: description, showMod: showMod });
+
+ apperingData = (title, imageUrl, description,  modalShow) => {
+      this.setState({
+        title: title,
+        imageUrl: imageUrl,
+        description: description,
+        modalShow:modalShow,
+      });
   };
-  handleShow = () => {
-    this.setState({
-      show: true,
-    });
-  };
-  handleHide = () => {
-    this.setState({
-      show: false,
-    });
+
+  handleShow =  modalShow =>{
+      this.setState({
+        modalShow:modalShow
+      });
   }
+
 
   render(){
     return(
-      <div>
-       
-        <Header/>
-        <SelectedBeast  hideCard={this.handleClose} showCard= {this.state.show}  imageData={this.state.image}  titleData={this.state.title} descriptionData = {this.state.description}/>
-        <Main dataList={Data} modalActive={this.modalActive}/>
-        <Footer/>
-        
+      <>
+        <SelectedBeast 
+          title={this.state.title}
+          imageUrl={this.state.imageUrl}
+          description={this.state.description}
+          showModal={this.state.modalShow}
+          hideN={this.handleShow}
 
-      </div>
+        />
+        <Header />
+        <Main 
+          dataList={Data}
+          apperingData={this.apperingData}/>
+        <Footer />
+      </>
     );
   }
 }

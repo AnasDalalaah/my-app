@@ -75,3 +75,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 It takes 3/4 hours to solve the lab, but the presence of the map feature shortened more timث
 
 '
+### Lab03:
+"
+28-27/7/2021:
+Number and name of feature:Feature #1: Display a Modal
+
+Estimate of time needed to complete: 2 hours_
+
+Start time: _10pm ____27/7
+
+Finish time: 5 pm___28/7
+
+Actual time needed to complete:8 hours
+
+"
